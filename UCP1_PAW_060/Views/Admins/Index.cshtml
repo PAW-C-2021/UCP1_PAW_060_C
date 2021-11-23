@@ -1,0 +1,48 @@
+﻿@model IEnumerable<UCP1_PAW_060.Models.Admin>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Nama Admin")
+            </th>
+            <th>
+                @Html.DisplayName("Password")
+            </th>
+            <th>
+                @Html.DisplayName("Nomor Telepon")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoTelepon)
+            </td>
+            <td>
+
+                <a asp-action="Edit" asp-route-id="@item.IdPenjual"><i class="fas fa-user-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdPenjual"><i class="fas fa-info-circle"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPenjual"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

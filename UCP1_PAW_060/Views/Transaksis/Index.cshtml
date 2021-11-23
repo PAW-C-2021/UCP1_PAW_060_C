@@ -1,0 +1,72 @@
+﻿@model IEnumerable<UCP1_PAW_060.Models.Transaksi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Tanggal Transaksi")
+            </th>
+            <th>
+                @Html.DisplayName("Kode Baju")
+            </th>
+            <th>
+                @Html.DisplayName("Harga Baju")
+            </th>
+            <th>
+                @Html.DisplayName("Jumlah Baju")
+            </th>
+            <th>
+                @Html.DisplayName("Total Baju")
+            </th>
+            <th>
+                @Html.DisplayName("Penjual")
+            </th>
+            <th>
+                @Html.DisplayName("Pembeli")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalTransaksi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KodeBaju)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HargaBaju)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JumlahBaju)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalBaju)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPenjual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPembeli)
+            </td>
+            <td>
+
+                <a asp-action="Edit" asp-route-id="@item.IdTransaksi"><i class="fas fa-user-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdTransaksi"><i class="fas fa-info-circle"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdTransaksi"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
